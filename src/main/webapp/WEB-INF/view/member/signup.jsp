@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <h3 class="mb-4">SignUp</h3>
-            <form action="member/signup" method="post">
+            <form action="member/signup" method="post" onsubmit="return checkValues()">
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email</label>
                     <div class="input-group">
@@ -26,15 +26,16 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword">
+                    <input type="password" class="form-control" id="inputPassword" required oninput="passwordCheck()">
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword2" class="form-label">Check Password</label>
-                    <input type="password" class="form-control" id="inputPassword2">
+                    <input type="password" class="form-control" id="inputPassword2" required oninput="passwordCheck()">
+                    <div class="form-text" id="passwordMessage"></div>
                 </div>
                 <div class="mb-3">
                     <label for="inputNickName" class="form-label">NickName</label>
-                    <input type="text" class="form-control" id="inputNickName">
+                    <input type="text" class="form-control" id="inputNickName" required>
                 </div>
                 <button class="btn btn-outline-primary">
                     SignUp
@@ -51,6 +52,30 @@
         // ajax 요청
         const response = await fetch(encodeURI(url));
         alert(await response.text());
+    }
+
+    function passwordCheck() {
+        const password1 = document.querySelector("#inputPassword").value;
+        const password2 = document.querySelector("#inputPassword2").value;
+
+        if (password1 != password2) {
+            document.querySelector("#passwordMessage")
+                .textContent = "Password mismatch"
+        } else {
+            document.querySelector("#passwordMessage")
+                .textContent = ""
+        }
+    }
+
+    function checkValue() {
+        const password1 = document.querySelector("#inputPassword").value;
+        const password2 = document.querySelector("#inputPassword2").value;
+        if (password1 == password2 && password1 != "") {
+            return true;
+        } else {
+            alert("Password mismatch")
+            return false;
+        }
     }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"

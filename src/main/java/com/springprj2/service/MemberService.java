@@ -24,10 +24,11 @@ public class MemberService {
 
     public String selectByEmail(String email) {
         String value = mapper.selectByEmail(email);
+        System.out.println("value = " + value);
         if (value == null) {
-            return "Not Use Email";
+            return "Available Email";
         } else {
-            return "Use Email";
+            return "Unavailable Email";
         }
     }
 }
