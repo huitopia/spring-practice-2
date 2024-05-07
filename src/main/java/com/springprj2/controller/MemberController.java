@@ -24,8 +24,8 @@ public class MemberController {
     public String signUp(Member member) {
         System.out.println("member = " + member);
         service.insertMember(member);
-        
-        return "redirect:/";
+
+        return "redirect:/member/login";
     }
 
     @GetMapping("email")
@@ -34,4 +34,10 @@ public class MemberController {
         String message = service.selectByEmail(email);
         return message;
     }
+
+    @GetMapping("login")
+    public String loginForm() {
+        return "member/login";
+    }
+    
 }

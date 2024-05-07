@@ -17,7 +17,7 @@ public class AppConfiguration {
         // Spring Security에서 CSRF(Cross-Site Request Forgery) 보호를 비활성
         http.csrf(csrf -> csrf.disable());
         // 사용자가 로그인할 때 사용될 사용자 지정 로그인 페이지를 설정
-        http.formLogin(login -> login.loginPage("/login"));
+        http.formLogin(login -> login.loginPage("/member/login"));
         return http.build();
     }
 

@@ -23,9 +23,8 @@ public class MemberService {
     }
 
     public String selectByEmail(String email) {
-        String value = mapper.selectByEmail(email);
-        System.out.println("value = " + value);
-        if (value == null) {
+        Member member = mapper.selectByEmail(email);
+        if (member == null) {
             return "Available Email";
         } else {
             return "Unavailable Email";
