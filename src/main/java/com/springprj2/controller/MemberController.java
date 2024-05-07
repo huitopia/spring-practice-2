@@ -22,8 +22,10 @@ public class MemberController {
 
     @PostMapping("signup")
     public String signUp(Member member) {
+        System.out.println("member = " + member);
         service.insertMember(member);
-        return null;
+        
+        return "redirect:/";
     }
 
     @GetMapping("email")

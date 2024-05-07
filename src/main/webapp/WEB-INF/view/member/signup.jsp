@@ -13,11 +13,11 @@
     <div class="row justify-content-center">
         <div class="col-6">
             <h3 class="mb-4">SignUp</h3>
-            <form action="member/signup" method="post" onsubmit="return checkValues()">
+            <form action="/member/signup" method="post" onsubmit="return checkValues()">
                 <div class="mb-3">
                     <label for="inputEmail" class="form-label">Email</label>
                     <div class="input-group">
-                        <input type="email" class="form-control" id="inputEmail" required>
+                        <input type="email" class="form-control" id="inputEmail" required name="email">
                         <button type="button" class="btn btn-outline-secondary" id="buttonEmailCheck"
                                 onclick="emailCheck()">
                             중복 확인
@@ -26,7 +26,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword" required oninput="passwordCheck()">
+                    <input type="password" class="form-control" id="inputPassword" required oninput="passwordCheck()"
+                           name="password">
                 </div>
                 <div class="mb-3">
                     <label for="inputPassword2" class="form-label">Check Password</label>
@@ -35,7 +36,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="inputNickName" class="form-label">NickName</label>
-                    <input type="text" class="form-control" id="inputNickName" required>
+                    <input type="text" class="form-control" id="inputNickName" required name="nick_name">
                 </div>
                 <button class="btn btn-outline-primary">
                     SignUp

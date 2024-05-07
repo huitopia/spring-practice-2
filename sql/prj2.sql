@@ -2,6 +2,7 @@ CREATE DATABASE prj2;
 
 USE prj2;
 
+
 CREATE TABLE member
 (
     id            INT PRIMARY KEY AUTO_INCREMENT,
@@ -10,6 +11,10 @@ CREATE TABLE member
     nick_name     VARCHAR(10) NOT NULL UNIQUE,
     inserted_date DATETIME    NOT NULL DEFAULT NOW()
 );
+
+# 컬럼 타입 변경
+ALTER TABLE member
+    MODIFY password VARCHAR(200);
 
 DESC member;
 
