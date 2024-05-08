@@ -3,9 +3,11 @@ package com.springprj2.controller;
 import com.springprj2.domain.Board;
 import com.springprj2.service.BoardService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -30,5 +32,12 @@ public class BoardController {
     @GetMapping("/add")
     public String addView() {
         return "board/add";
+    }
+
+    @PostMapping("/add")
+    // Authentication : 현재 사용자 정보
+    public String addBoard(Board board, Authentication authentication) {
+        service.insertBoardById(board, authentication);
+        return "redirect:/";
     }
 }

@@ -26,8 +26,7 @@
                 <div class="mb-3 row">
                     <label for="textareaControl" class="col-sm-2 col-form-label">Content</label>
                     <div class="col-sm-10">
-                        <textarea id="textareaControl" class="form-control" required name="content">
-                        </textarea>
+                        <textarea id="textareaControl" class="form-control" required name="content"></textarea>
                     </div>
                 </div>
                 <div class="mb-3">

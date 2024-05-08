@@ -1,6 +1,7 @@
 package com.springprj2.mapper;
 
 import com.springprj2.domain.Board;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -33,4 +34,10 @@ public interface BoardMapper {
             WHERE b.id = #{id}
             """)
     Board selectBoardById(String id);
+
+    @Insert("""
+            INSERT INTO board (title, content, member_id)
+            VALUES (#{title}, #{content}, #{memberId})
+            """)
+    int insertBoardById(Board board);
 }

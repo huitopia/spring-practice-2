@@ -17,9 +17,7 @@
             <h3 class="mb-4">${board.title}</h3>
             <div class="mb-3">
                 <label for="textareaControl" class="form-label">Content</label>
-                <textarea id="textareaControl" class="form-control">
-                    ${board.content}
-                </textarea>
+                <textarea id="textareaControl" class="form-control">${board.content}</textarea>
             </div>
             <div class="mb-2 row">
                 <label for="inputWriter" class="col-sm-2 col-form-label">Writer</label>
