@@ -22,7 +22,6 @@ public class MemberController {
 
     @PostMapping("signup")
     public String signUp(Member member) {
-        System.out.println("member = " + member);
         service.insertMember(member);
 
         return "redirect:/member/login";
@@ -39,5 +38,4 @@ public class MemberController {
     public String loginForm() {
         return "member/login";
     }
-    
 }

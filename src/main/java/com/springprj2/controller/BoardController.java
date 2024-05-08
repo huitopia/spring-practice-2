@@ -17,7 +17,6 @@ public class BoardController {
     @GetMapping("/")
     public String boardList(Model model) {
         List<Board> boards = service.selectBoardList();
-        boards.forEach(System.out::println);
         model.addAttribute("boardList", boards);
         return "board/home";
     }
