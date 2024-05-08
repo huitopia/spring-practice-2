@@ -13,7 +13,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <sec:authorize access="isAuthenticated()">
+                <sec:authorize access="not isAuthenticated()">
                     <li class="nav-item">
                         <a class="nav-link" href="/member/signup">SighUp</a>
                     </li>
