@@ -33,6 +33,10 @@
                            readonly value="${board.insertedDate}">
                 </div>
             </div>
+            <div>
+                <a href="/modify" class="btn btn-outline-info" role="button">Modify</a>
+                <a href="/delete" class="btn btn-outline-danger" role="button">Delete</a>
+            </div>
         </div>
     </div>
 </div>
