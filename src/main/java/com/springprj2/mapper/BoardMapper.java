@@ -11,7 +11,6 @@ public interface BoardMapper {
     @Select("""
             SELECT b.id,
                     b.title,
-                    b.content,
                     m.nick_name writer,
                     b.inserted_date,
                     b.member_id

@@ -13,14 +13,29 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-6">
+        <div class="col-8">
             <h3 class="mb-4">BoardList</h3>
-            <table class="table">
+            <table class="table table-striped table-hover">
                 <thead>
                 <tr>
-                    <th></th>
+                    <th>#</th>
+                    <th style="width: 50%">title</th>
+                    <th>writer</th>
+                    <th>insertedDate</th>
                 </tr>
                 </thead>
+                <tbody>
+                <c:forEach items="${boardList}" var="board">
+                    <tr>
+                        <td>${board.id}</td>
+                        <td>
+                            <a href="/board?id=${board.id}">${board.title}</a>
+                        </td>
+                        <td>${board.writer}</td>
+                        <td>${board.insertedDate}</td>
+                    </tr>
+                </c:forEach>
+                </tbody>
             </table>
         </div>
     </div>
