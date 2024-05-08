@@ -38,4 +38,9 @@ public class BoardService {
             mapper.insertBoardById(board);
         }
     }
+
+
+    public void updateBoardById(Board board) {
+        mapper.updateBoardById(board);
+    }
 }

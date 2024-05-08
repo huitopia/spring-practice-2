@@ -40,4 +40,16 @@ public class BoardController {
         service.insertBoardById(board, authentication);
         return "redirect:/";
     }
+
+    @GetMapping("/modify")
+    public String modifyView(String id, Model model) {
+        model.addAttribute("board", service.selectBoardById(id));
+        return "board/modify";
+    }
+
+    @PostMapping("/modify")
+    public String updateBoard(String id, Board board) {
+        service.updateBoardById(board);
+        return "redirect:/";
+    }
 }

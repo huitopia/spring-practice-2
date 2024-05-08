@@ -4,6 +4,7 @@ import com.springprj2.domain.Board;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -40,4 +41,11 @@ public interface BoardMapper {
             VALUES (#{title}, #{content}, #{memberId})
             """)
     int insertBoardById(Board board);
+
+    @Update("""
+            UPDATE board
+            SET title=#{title}, content=#{content}
+            WHERE id=#{id} AND member_id=#{memberId}
+            """)
+    int updateBoardById(Board board);
 }
