@@ -17,4 +17,8 @@ public class BoardService {
     public List<Board> selectBoardList() {
         return mapper.selectBoardList();
     }
+
+    public Board selectBoardById(String id) {
+        return mapper.selectBoardById(id);
+    }
 }

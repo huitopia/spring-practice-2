@@ -15,11 +15,17 @@ public class BoardController {
     private final BoardService service;
 
     @GetMapping("/")
-    public String BoardList(Model model) {
+    public String boardList(Model model) {
         List<Board> boards = service.selectBoardList();
         boards.forEach(System.out::println);
         model.addAttribute("boardList", boards);
         return "board/home";
+    }
+
+    @GetMapping("/board")
+    public String boardView(String id, Model model) {
+        model.addAttribute("board", service.selectBoardById(id));
+        return "board/view";
     }
 
 }

@@ -20,4 +20,17 @@ public interface BoardMapper {
             ORDER BY b.id DESC
             """)
     List<Board> selectBoardList();
+
+    @Select("""
+            SELECT b.id,
+                b.title,
+                b.content,
+                m.nick_name writer,
+                b.inserted_date,
+                b.member_id
+            FROM board b
+            JOIN member m ON b.member_id = m.id
+            WHERE b.id = #{id}
+            """)
+    Board selectBoardById(String id);
 }
