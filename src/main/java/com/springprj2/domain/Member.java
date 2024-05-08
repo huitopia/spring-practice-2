@@ -10,7 +10,7 @@ public class Member {
     private Integer id;
     private String email;
     private String password;
-    private String nick_name;
-    private LocalDateTime inserted_date;
+    private String nickName;
+    private LocalDateTime insertedDate;
     private List<String> authority;
 }

@@ -18,14 +18,20 @@ ALTER TABLE member
 
 DESC member;
 
+SELECT *
+FROM member;
+
 CREATE TABLE authority
 (
     id        INT PRIMARY KEY AUTO_INCREMENT,
-    name      VARCHAR(20) NOT NULL DEFAULT ('member'),
-    member_id INT         NOT NULL REFERENCES member (id)
+    name      VARCHAR(20) DEFAULT ('member'),
+    member_id INT NOT NULL REFERENCES member (id)
 );
 
-desc authority;
+DESC authority;
+
+SELECT *
+FROM authority;
 
 CREATE TABLE board
 (
@@ -38,6 +44,13 @@ CREATE TABLE board
 
 DESC board;
 
+INSERT INTO board (title, content, member_id)
+VALUES ('title1', 'desc1', 2),
+       ('title2', 'desc2', 2);
+
+SELECT *
+FROM board;
+
 CREATE TABLE comment
 (
     id            INT PRIMARY KEY AUTO_INCREMENT,
@@ -48,3 +61,9 @@ CREATE TABLE comment
 );
 
 DESC comment;
+
+SELECT b.id, b.title, b.content, m.nick_name, b.inserted_date, b.member_id
+FROM board b
+         JOIN member m
+              ON b.member_id = m.id
+ORDER BY b.id DESC
