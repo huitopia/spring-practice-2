@@ -27,4 +27,8 @@ public class BoardController {
         return "board/view";
     }
 
+    @GetMapping("/add")
+    public String addView() {
+        return "board/add";
+    }
 }
