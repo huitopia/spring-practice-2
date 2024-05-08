@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,8 +35,13 @@
                 </div>
             </div>
             <div>
-                <a href="/modify" class="btn btn-outline-info" role="button">Modify</a>
-                <a href="/delete" class="btn btn-outline-danger" role="button">Delete</a>
+                <sec:authorize access="isAuthenticated()">
+                    <sec:authentication property="principal.member" var="authMember"></sec:authentication>
+                    <c:if test="${authMember.id eq board.memberId}">
+                        <a href="/modify?id=${board.id}" class="btn btn-outline-info" role="button">Modify</a>
+                        <a href="/delete?id=${board.id}" class="btn btn-outline-danger" role="button">Delete</a>
+                    </c:if>
+                </sec:authorize>
             </div>
         </div>
     </div>
