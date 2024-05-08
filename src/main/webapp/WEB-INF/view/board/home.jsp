@@ -37,6 +37,7 @@
                 </c:forEach>
                 </tbody>
             </table>
+            <a href="/board/add" class="btn btn-outline-secondary" role="button">Add</a>
         </div>
     </div>
 </div>
