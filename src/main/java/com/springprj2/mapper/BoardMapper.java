@@ -1,10 +1,7 @@
 package com.springprj2.mapper;
 
 import com.springprj2.domain.Board;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -48,4 +45,18 @@ public interface BoardMapper {
             WHERE id=#{id} AND member_id=#{memberId}
             """)
     int updateBoardById(Board board);
+
+    @Select("""
+            SELECT b.id,
+                    m.id member_id
+            FROM board b
+            JOIN member m ON b.member_id = m.id
+            WHERE b.id = #{id}
+            """)
+    Board selectById(Integer id);
+
+    @Delete("""
+            DELETE FROM board WHERE id = #{id}
+            """)
+    int deleteBoardById(Integer id);
 }

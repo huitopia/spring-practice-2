@@ -52,4 +52,12 @@ public class BoardController {
         service.updateBoardById(board);
         return "redirect:/";
     }
+
+    @GetMapping("/delete")
+    public String deleteBoard(Integer id, Authentication authentication) {
+        if (service.hashAccess(id, authentication)) {
+            service.deleteBoardById(id);
+        }
+        return "redirect:/";
+    }
 }

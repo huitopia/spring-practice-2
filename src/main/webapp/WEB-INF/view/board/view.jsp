@@ -39,7 +39,9 @@
                     <sec:authentication property="principal.member" var="authMember"></sec:authentication>
                     <c:if test="${authMember.id eq board.memberId}">
                         <a href="/modify?id=${board.id}" class="btn btn-outline-info" role="button">Modify</a>
-                        <a href="/delete?id=${board.id}" class="btn btn-outline-danger" role="button">Delete</a>
+                        <a href="/delete?id=${board.id}" class="btn btn-outline-danger" role="button">
+                            Delete
+                        </a>
                     </c:if>
                 </sec:authorize>
             </div>
