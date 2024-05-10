@@ -28,6 +28,11 @@
                         <a class="nav-link" href="/logout">LogOut</a>
                     </li>
                 </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/member">Member</a>
+                    </li>
+                </sec:authorize>
             </ul>
         </div>
     </div>
