@@ -26,7 +26,14 @@ public interface MemberMapper {
     @Select("""
             SELECT name
             FROM authority
-            WHERE member_id = #{id}   
+            WHERE member_id = #{id}
             """)
     List<String> selectAuthorityByMemberId(Integer id);
+
+    @Select("""
+            SELECT *
+            FROM member
+            ORDER BY id DESC 
+            """)
+    List<Member> selectMember();
 }
