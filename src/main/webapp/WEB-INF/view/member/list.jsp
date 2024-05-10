@@ -30,7 +30,7 @@
                     <tr>
                         <td>${member.id}</td>
                         <td>
-                            <a href="/member?id=${member.id}">${member.email}</a>
+                            <a href="/member/view?id=${member.id}">${member.email}</a>
                         </td>
                         <td>${member.nickName}</td>
                         <td>${member.insertedDate}</td>

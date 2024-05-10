@@ -36,4 +36,8 @@ public class MemberService {
     public List<Member> selectMember() {
         return mapper.selectMember();
     }
+
+    public Member selectById(String id) {
+        return mapper.selectById(id);
+    }
 }
