@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,7 +38,9 @@
                 </c:forEach>
                 </tbody>
             </table>
-            <a href="/add" class="btn btn-outline-secondary" role="button">Add</a>
+            <sec:authorize access="isAuthenticated()">
+                <a href="/add" class="btn btn-outline-secondary" role="button">Add</a>
+            </sec:authorize>
         </div>
     </div>
 </div>

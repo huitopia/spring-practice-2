@@ -3,6 +3,7 @@ package com.springprj2.controller;
 import com.springprj2.domain.Member;
 import com.springprj2.service.MemberService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,8 +51,22 @@ public class MemberController {
     }
 
     @GetMapping("view")
-    public String memberView(String id, Model model) {
+    public String memberView(Integer id, Model model) {
         model.addAttribute("member", service.selectById(id));
         return "member/view";
+    }
+
+    @GetMapping("modify")
+    public String modifyForm(Integer id, Model model) {
+        model.addAttribute("member", service.selectById(id));
+        return "member/modify";
+    }
+
+    @PostMapping("modify")
+    public String modifyMember(Integer id, Member member, Authentication authentication) {
+        if (service.hasAccess(member.getId(), authentication)) {
+            service.modifyMemberById(member);
+        }
+        return "redirect:/member";
     }
 }

@@ -4,6 +4,7 @@ import com.springprj2.domain.Member;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -42,5 +43,12 @@ public interface MemberMapper {
             FROM member
             WHERE id = #{id}
             """)
-    Member selectById(String id);
+    Member selectById(Integer id);
+
+    @Update("""
+            UPDATE member
+            SET password=#{password}
+            WHERE id=#{id}
+            """)
+    int modifyMemberById(Member member);
 }
